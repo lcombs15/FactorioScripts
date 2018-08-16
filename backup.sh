@@ -1,7 +1,9 @@
 #!/bin/bash
 
-# May 2018 - Backup mod_factorio files to Google Drive
-echo Running mod_factorio backup: $(date)
+# Factorio Backup
+# This script creates a backup of the newest save file
+# if needed to Google Drive
+echo Running Factorio backup: $(date) "|" $(pwd)
 
 # Make temp directory
 mkdir /tmp/mod_factorio
