@@ -11,7 +11,7 @@ temp_dir=/tmp/factorio_backup
 mkdir $temp_dir
 
 # Make file array of all game saves
-files=($(find /home/lucas/mod_factorio/ -maxdepth 3 -name '*.zip'))
+files=($(find $(pwd) -maxdepth 3 -name '*.zip'))
 
 # Assume the first file is the newest
 newest=${files[0]}
@@ -23,7 +23,7 @@ for f in ${files[@]}; do
 	fi
 done
 
-if [ $newest -nt /home/lucas/mod_factorio/saves/mod_squad_last_backup.zip ]; then
+if [ $newest -nt $(pwd)/saves/mod_squad_last_backup.zip ]; then
 
 	# Copy and timestamp save file
 	cp $newest $temp_dir/mod_squad.zip
@@ -31,7 +31,7 @@ if [ $newest -nt /home/lucas/mod_factorio/saves/mod_squad_last_backup.zip ]; the
 
 	# Upload save to Google Drive (parent is mod_factorio folder in Drive)
 	gdrive upload --parent 1_Q_FMHg09em1YqWOjSQ2cckGoXp4mCO0 $temp_dir/*
-	cp $temp_dir/* /home/lucas/mod_factorio/saves/mod_squad_last_backup.zip
+	cp $temp_dir/* $(pwd)/saves/mod_squad_last_backup.zip
 
 	echo "Backup has been made."
 else
