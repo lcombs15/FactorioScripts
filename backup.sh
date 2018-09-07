@@ -30,7 +30,7 @@ if [ $newest -nt $(pwd)/saves/mod_squad_last_backup.zip ]; then
 	mv $temp_dir/mod_squad.zip $temp_dir/mod_squad_$(date +%H_%M___%m_%d_%Y).zip
 
 	# Upload save to Google Drive (parent is mod_factorio folder in Drive)
-	gdrive upload --parent 1_Q_FMHg09em1YqWOjSQ2cckGoXp4mCO0 $temp_dir/*
+	gdrive upload --parent 1h8Gh9b0wvqWKlMLHzfiXraY6mwM0C4RH $temp_dir/*
 	cp $temp_dir/* $(pwd)/saves/mod_squad_last_backup.zip
 
 	echo "Backup has been made."
